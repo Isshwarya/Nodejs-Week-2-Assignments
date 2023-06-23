@@ -85,7 +85,7 @@ app.get("/todos/:id", (req, res) => {
     });
     return;
   }
-  res.send(filteredTodo);
+  res.send(filteredTodo[0]);
 });
 
 app.delete("/todos/:id", (req, res) => {
@@ -102,7 +102,7 @@ app.delete("/todos/:id", (req, res) => {
     return;
   }
   todos.splice(index, 1);
-  return res.status(httpStatus.StatusCodes.NO_CONTENT).json({});
+  return res.status(httpStatus.StatusCodes.OK).json({});
 });
 
 // app.listen(port, () => {

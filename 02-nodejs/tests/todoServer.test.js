@@ -17,6 +17,7 @@ describe("Todo API", () => {
     globalServer = server.listen(3000);
     console.log("listen returned");
     done();
+    console.log("done called");
   });
 
   afterAll((done) => {
@@ -87,6 +88,7 @@ describe("Todo API", () => {
 
       res.on("end", () => {
         const todo = JSON.parse(data);
+        console.log(data);
         expect(todo.id).toBe(createdTodoId);
         done();
       });
